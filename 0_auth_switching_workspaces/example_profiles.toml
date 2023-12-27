@@ -1,0 +1,21 @@
+# `prefect profile use staging` to switch staging profile
+# Find file in: ~/.prefect/profiles.toml
+# Docs: https://docs.prefect.io/latest/guides/settings/#configuration-profiles
+
+active = "default"
+
+[profiles.local]
+PREFECT_API_URL = "http://127.0.0.1:4200/api"
+
+[profiles.default]
+PREFECT_API_KEY = "pnu_----replace-me----"
+PREFECT_API_URL = "https://api.prefect.cloud/api/accounts/--replace-me--/workspaces/--replace-me--"
+
+[profiles.staging]
+PREFECT_API_KEY = "pnu_----replace-me----"
+PREFECT_API_URL = "https://api.prefect.cloud/api/accounts/--replace-me--/workspaces/--staging-workspace-replace-me--"
+PREFECT_LOGGING_LEVEL = "DEBUG"
+
+[profiles.n]
+PREFECT_API_KEY = "pnu_----replace-me----"
+PREFECT_API_URL = "https://api.prefect.cloud/api/accounts/--replace-me--/workspaces/--n-workspace-replace-me--"

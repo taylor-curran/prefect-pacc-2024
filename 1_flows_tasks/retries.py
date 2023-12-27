@@ -15,7 +15,7 @@ def fetch_cat_fact():
     print(cat_fact.text)
 
 
-@flow
+@flow(retries=1)
 def fetch():
     fetch_cat_fact()
 
