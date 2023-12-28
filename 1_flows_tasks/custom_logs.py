@@ -10,6 +10,10 @@ def log_it():
     logger.info("INFO level log message.")
     logger.debug("You only see this message if the logging level is set to DEBUG. 🙂")
 
+# Optionally log all print statements during development
+@flow(name="my-dev-flow", log_prints=True)
+def dev_flow():
+    print("This print statement will be logged.")
 
 if __name__ == "__main__":
     log_it()
