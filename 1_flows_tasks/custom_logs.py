@@ -11,7 +11,7 @@ def log_it():
     logger.debug("You only see this message if the logging level is set to DEBUG. 🙂")
 
 
-# Optionally log all print statements during development
+# Optionally log all print statements, this can be convenient during development
 @flow(name="my-dev-flow", log_prints=True)
 def dev_flow():
     print("This print statement will be logged.")
