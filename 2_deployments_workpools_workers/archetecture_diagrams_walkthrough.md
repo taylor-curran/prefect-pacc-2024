@@ -48,3 +48,5 @@ Default infrastructure settings in the work pool can be overridden at the deploy
 —Therefore, you can think of the work pool as just the default template.
 ![Alt text](deployment_with_job_variables.png)
 
+## Summary Diagram
+![Alt text](main_diagram.png)
