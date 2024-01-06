@@ -15,11 +15,12 @@ Otherwise you can create a work pool with the following command:
 ```bash
 prefect work-pool create "my-pool" --type docker
 ```
-(https://docs.prefect.io/latest/tutorial/workers/#start-a-worker)
 
 ### 2. [Start a worker](https://docs.prefect.io/latest/tutorial/workers/#start-a-worker) to poll this work pool.
 
-pip install the required library
+Ensure your docker daemon is running.
+
+Install the required library:
 ```python
 pip install prefect-docker
 ```
@@ -33,18 +34,19 @@ prefect worker start --pool my-docker-pool
 ### 3. Now you're all set [create a deployment](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment) to send your flow to your work pool.
 
 
-1. Start your docker daemon.
+1. Ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
+
 2. Use the flow.deploy() method to create a deployment:
 
 
-    ```python
+    ```python title="my_flow.py"
     import httpx
     from prefect import flow
 
 
     @flow(log_prints=True)
-    def my_flow():
-        print("Hello World!")
+    def my_flow(name: str = "World"):
+        print(f"Hello {name}!")
 
     if __name__ == "__main__":
         my_flow.deploy(
@@ -55,3 +57,15 @@ prefect worker start --pool my-docker-pool
         )
     ```
 
+3. Run your python script:
+    ```bash
+    python my_flow.py
+    ```
+
+### 4. Find your deployment in the UI and run it using the quick run button.
+![Alt text](quick_run_button.png)
+
+Or run the deployment from the CLI
+```bash
+prefect deployment run 'my_flow/my-deployment'
+```
