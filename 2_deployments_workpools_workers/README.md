@@ -36,11 +36,10 @@ prefect worker start --pool my-docker-pool
 
 1. Ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
 
-2. Use the flow.deploy() method to create a deployment:
+2. Use the `flow.deploy()`` method to define a deployment:
 
 
     ```python title="my_flow.py"
-    import httpx
     from prefect import flow
 
 
