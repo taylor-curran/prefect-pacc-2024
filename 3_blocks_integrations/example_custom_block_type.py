@@ -46,26 +46,3 @@ class GitHubIssues(Block):
         )
         return most_recent_issue
 
-
-# from prefect import flow, task
-# from prefect.blocks.system import JSON
-
-
-# # my_new_block = JSON(value={"the_answer": 42})
-# # my_new_block.save("taylor-pacc-json-block", overwrite=True)
-
-# @task
-# def load_block():
-#     jb = JSON.load("taylor-pacc-json-block")
-#     my_dict = jb.value
-
-#     print(my_dict)
-
-
-# @flow(log_prints=True)
-# def load_block_flow():
-#     load_block()
-
-
-# if __name__ == "__main__":
-#     load_block_flow()
