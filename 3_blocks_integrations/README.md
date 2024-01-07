@@ -78,8 +78,6 @@ Go check out the flow run in the UI. You can see that _Prefect is tracking when 
 
 To create a custom block type, define a class that subclasses [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block). The Block base class builds off of Pydantic's BaseModel, so custom blocks can be [declared in same manner as a Pydantic model](https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage).
 
-Follow [this guide](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types) to create a custom block type and [register it with your workspace](https://docs.prefect.io/latest/concepts/blocks/#registering-blocks-for-use-in-the-prefect-ui) for use in the UI.
-
 1. Inherit from [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block) class and add attributes
 2. Add methods (aka: capabilities)
 3. Add class-level details:
@@ -90,8 +88,8 @@ Follow [this guide](https://docs.prefect.io/latest/concepts/blocks/#creating-new
     ```bash
     prefect block register --file custom_block.py
     ```
-5. Consider open sourcing your custom block type, use our collections template
-6. Find examples of production-grade block types in Prefect's source code and integration libraries, like the [SlackWebhook Block](https://github.com/PrefectHQ/prefect/blob/d3eea3f02ffcb74f0877b7f96f674bdce97fa95d/src/prefect/blocks/notifications.py#L86C46-L86C46) type and the the [S3Bucket](https://github.com/PrefectHQ/prefect-aws/blob/main/prefect_aws/s3.py#L395C11-L395C11) type.
+5. Consider open sourcing your custom block type (see step 0 above)
+6. Find examples of production-grade block types in Prefect's source code and integration libraries, like the [SlackWebhook](https://github.com/PrefectHQ/prefect/blob/d3eea3f02ffcb74f0877b7f96f674bdce97fa95d/src/prefect/blocks/notifications.py#L86C46-L86C46) type and the the [S3Bucket](https://github.com/PrefectHQ/prefect-aws/blob/main/prefect_aws/s3.py#L395C11-L395C11) type.
 
 ### Here is a simple example of a custom block type:
 
