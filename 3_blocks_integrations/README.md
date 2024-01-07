@@ -33,9 +33,9 @@ Prefect integrations are organized into collections of pre-built tasks, flows, b
 You'll use this block during the automation module's lab.
 
 ### 2. [Create and save another block, but this time using Prefect's python sdk.](https://docs.prefect.io/latest/concepts/blocks/#instantiating-blocks)
-    Create a JSON block:
+Create a JSON block:
 
-    `create_block.py`
+`create_block.py`
 
 ```python
 from prefect.blocks.system import JSON
