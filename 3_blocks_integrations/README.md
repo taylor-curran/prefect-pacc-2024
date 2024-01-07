@@ -71,7 +71,7 @@ if __name__ == "__main__":
     load_block_flow()
 ```
 
-Go check out the flow run in the UI. You can see that **Prefect is tracking when a block's method is called**. We will learn more about Prefect Events in an upcoming module.
+Go check out the flow run in the UI. You can see that _Prefect is tracking when a block's method is called_. We will learn more about Prefect Events in an upcoming module.
 ![Alt text](flow_run_with_block_usage.png)
 
 ### 5. Optional: [Create a custom block type.](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types)
