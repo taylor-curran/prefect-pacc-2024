@@ -17,6 +17,7 @@ def fetch_weather(lat: float, lon: float):
     most_recent_temp = float(weather.json()["hourly"]["temperature_2m"][0])
     return most_recent_temp
 
+
 # Tasks can't run inside other tasks.
 @task
 def save_weather(temp: float):
@@ -24,11 +25,13 @@ def save_weather(temp: float):
         w.write(str(temp))
     return "Successfully wrote temp"
 
+
 # Flows CAN run inside other flows.
 # Docs: https://docs.prefect.io/latest/concepts/flows/#composing-flows
 @flow
 def my_subflow():
     return "Flows can run inside other flows"
+
 
 @flow
 def pipeline(lat: float = 38.9, lon: float = -77.0):

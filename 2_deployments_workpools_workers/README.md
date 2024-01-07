@@ -38,7 +38,6 @@ prefect worker start --pool my-docker-pool
 
 2. Use the `flow.deploy()`` method to define a deployment:
 
-
     ```python title="my_flow.py"
     from prefect import flow
 
