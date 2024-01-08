@@ -1,11 +1,11 @@
-# prefect-pacc-2024
+# Prefect PACC 2024
 
-### Libraries Used:
+See the README in each folder for the guided quick starts.
+
+
+## Installs
+
 ```
-prefect
-prefect-gcp
-prefect-aws
-prefect-azure
-prefect-docker
-prefect-kuberetes
+pip install -U prefect prefect-gcp prefect-docker
+
 ```
