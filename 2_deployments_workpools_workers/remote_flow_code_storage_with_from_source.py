@@ -16,22 +16,31 @@ def my_flow(name: str = "World"):
 
 
 if __name__ == "__main__":
-    my_flow.from_source(
-        source=GitHub.load("my-private-gh-block"),
-        entrypoint="child_flows.py:child_flow_d",
-    ).deploy(
-        name="my-dep-5",
-        work_pool_name="my-k8s-pool",
-        image="docker.io/taycurran/child-d:demo",
-        build=False,
-    )
+    # my_flow.from_source(
+    #     source=GitHub.load("my-private-gh-block"),
+    #     entrypoint="child_flows.py:child_flow_d",
+    # ).deploy(
+    #     name="my-dep-5",
+    #     work_pool_name="my-k8s-pool",
+    #     image="docker.io/taycurran/child-d:demo",
+    #     build=False,
+    # )
 
-    my_flow.from_source(
-        source=GitHub.load("my-private-gh-block"),
-        entrypoint="child_flows.py:child_flow_d",
-    ).deploy(
+    # my_flow.from_source(
+    #     source=GitHub.load("my-private-gh-block"),
+    #     entrypoint="child_flows.py:child_flow_d",
+    # ).deploy(
+    #     name="my-dep-5",
+    #     work_pool_name="my-k8s-pool",
+    #     image="docker.io/taycurran/child-d:demo",
+    #     build=False,
+    #     tags=["my-tag-1", "my-tag-2"],
+    # )
+
+    my_flow.deploy(
         name="my-dep-5",
         work_pool_name="my-k8s-pool",
         image="docker.io/taycurran/child-d:demo",
         build=False,
+        tags=["pacc", "taylor"],
     )

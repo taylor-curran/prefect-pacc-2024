@@ -16,7 +16,7 @@ prefect work-pool ls
 
 Alternatively, you can create a work pool with the following command:
 ```bash
-prefect work-pool create "my-pool" --type docker
+prefect work-pool create "my-pacc-work-pool" --type docker
 ```
 
 ### 2. [Start a worker](https://docs.prefect.io/latest/tutorial/workers/#start-a-worker) to poll this work pool.
@@ -30,7 +30,7 @@ pip install prefect-docker
 
 On your laptop, open up a new terminal, activate your python environment, and type:
 ```bash
-prefect worker start --pool my-docker-pool
+prefect worker start --pool my-pacc-work-pool
 ```
 ^Keep this guy running for as long as you want to run deployments on your laptop. Go to our [guides]() when you are ready to start a worker in a production environment (aka not on your laptop)
 
@@ -40,6 +40,8 @@ prefect worker start --pool my-docker-pool
 1. Ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
 
 2. Use the `flow.deploy()` method to define a deployment:
+
+    `my_flow.py`
 
     ```python title="my_flow.py"
     from prefect import flow
@@ -51,10 +53,11 @@ prefect worker start --pool my-docker-pool
 
     if __name__ == "__main__":
         my_flow.deploy(
-            name="janes-pacc-deployment", 
-            work_pool_name="my-docker-work-pool", 
+            name="taylor-pacc-deployment", # add your name and 'pacc' so its easy to find
+            work_pool_name="my-pacc-work-pool", 
             image="my-first-deployment-image:pacc",
-            push=False
+            push=False,
+            tags=["pacc", "taylor"] # add tags
         )
     ```
 
