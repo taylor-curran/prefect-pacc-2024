@@ -33,6 +33,7 @@
 In this example, you'll create a custom trigger that results in an action of a [toy webhook](https://webhook.site/) being called.
 
 1. Find an block based event in the event feed and click into the event details.
+
     Filter by Resource:
     ![Alt text](block_filter.png)
 2. Click on the `Raw` tab to review the event's JSON values then click on the three dots at the top right and click `Automate`.
@@ -43,13 +44,15 @@ In this example, you'll create a custom trigger that results in an action of a [
 
     **Note:** There are many things we can do to fine tune this custom trigger. For example, we could change the threshold from 1 to 2 if we want this event to occur twice before triggering any action. For more information on trigger grammar, check out [these docs](https://docs.prefect.io/latest/concepts/automations/#custom-triggers).
 
-3. For the action select `Call a webhook` define a webhook block.
+3. For the action select `Call a webhook` and define a webhook block.
     1. First get a toy webhook endpoint at [Webhook.site](https://webhook.site/)
     2. Copy your unique URL
     3. Back in Prefect's UI, select the action `Call a webhook`
-    4. `Add +` a webhook block, past in your unique URL from Webhook.site, and click `Create`.
+    4. `Add +` a webhook block, paste in your unique URL from [Webhook.site](https://webhook.site/), and click `Create`.
     ![Alt text](create_webhook_block.png)
-4. Add another action to notify yourself about this. Your `Actions` page should look something like:
+4. Add another action to notify yourself about this. 
+    
+    Your `Actions` page should look something like:
     ![Alt text](compound_actions.png)
 5. Call your Automation something like `taylor-pacc-json-block-automation` and save.
 6.  Run your flow that loads the block, something like:
@@ -75,6 +78,9 @@ In this example, you'll create a custom trigger that results in an action of a [
 TODO: Why multiple webhook calls?
 
 ## 4. Declare and resolve a [Prefect Incident](https://docs.prefect.io/latest/cloud/incidents/)
+
+[Incidents](https://docs.prefect.io/latest/cloud/incidents/) are formal declarations of disruptions to a workspace. With automations, activity in that workspace can be paused when an incident is created and resumed when it is resolved.
+
 1. Find the `Incidents` page and click the `+` button.
 2. Define a test incident, call it something like `your-name-pacc-test` and click `Declare`:
     ![Alt text](declare_incident.png)
@@ -87,3 +93,27 @@ TODO: Why multiple webhook calls?
 6. Change the severity of the incident.
 7. Mark the incident as resolved. ✅
     ![Alt text](example_incident.png)
+8. Note: [Incidents are a more powerful feature when combined with automations](https://docs.prefect.io/latest/cloud/incidents/#incident-automations):
+    
+    Automations can be used for triggering an incident and for selecting actions to take when an incident is triggered. For example, a work pool status change could trigger the declaration of an incident, or a critical level incident could trigger a notification action.
+
+    To automatically take action when an incident is declared, set up a custom trigger that listens for declaration events.
+
+    ```JSON
+    {
+    "match": {
+        "prefect.resource.id": "prefect-cloud.incident.*"
+    },
+    "expect": [
+        "prefect-cloud.incident.declared"
+    ],
+    "posture": "Reactive",
+    "threshold": 1,
+    "within": 0
+    }
+    ```
+
+
+
+
+    
