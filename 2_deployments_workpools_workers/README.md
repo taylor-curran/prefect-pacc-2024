@@ -6,6 +6,8 @@ For conceptual breakdown of the diagram, go to [Architecture Diagrams Walkthroug
 ### 1. [Create a work pool](https://docs.prefect.io/latest/tutorial/workers/#create-a-work-pool) or choose one that already exists in your workspace.
 _Creating a work pool in the UI_ is recommended for your first go of it so you that get a sense of all the options.
 
+Call your work pool something like `name-pacc-work-pool`.
+
 Click the `+` button:
 ![Alt text](create_work_pool_button.png)
 

@@ -9,8 +9,8 @@ if __name__ == "__main__":
 
     my_flow.deploy(
         name="taylor-pacc-deployment",
-        work_pool_name="my-k8s-pool",
-        image="docker.io/taycurran/pacc:demo",
+        work_pool_name="taylor-pacc-work-pool",
+        image="docker.io/taycurran/pacc:quickstart",
         push=False,
         tags=["pacc", "taylor"],
     )

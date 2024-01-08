@@ -1,6 +1,0 @@
-prefect
-prefect-gcp
-prefect-aws
-prefect-azure
-prefect-docker
-prefect-kuberetes
