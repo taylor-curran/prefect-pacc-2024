@@ -143,9 +143,7 @@ prefect block register --file my_custom_block_type.py
 ![Alt text](images/register_screenshot.png)
 
 The Result:
-![Alt text](images/custom_type_listed.png)
 ![Alt text](images/custom_example.png)
-![Alt text](images/custom_type_form.png)
 
 #### [Design Philosophy Behind Blocks](https://medium.com/the-prefect-blog/supercharge-your-python-code-with-blocks-ca8a58128c55)
 Today there are many low-code data integration tools - “connectors” to popular applications. These tools are great for setting up connections to common systems, but they’re not code-first, or even code-second. It can be complex to do anything custom with these tools.
