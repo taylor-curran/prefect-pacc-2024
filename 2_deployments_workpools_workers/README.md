@@ -79,3 +79,7 @@ Alternatively, you can run the deployment from the CLI
 ```bash
 prefect deployment run 'my_flow/my-deployment'
 ```
+
+### 5. Advanced
+1. Add an infra-level override by specifying a `job_variable` on your deployment.
+2. Go to the Advanced tab of your work pool's setting to customize your work pool's job configuration.
