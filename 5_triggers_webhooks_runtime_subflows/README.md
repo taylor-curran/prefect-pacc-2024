@@ -59,11 +59,12 @@ my_flow()
 ```
 
 ## Tie it all together with an end to end example.
-Here is an example of an upstream flow that emits an event in its on_completion hook.
 
-That event is the trigger of a downstream deployment.
+Here is an example of an upstream flow that emits an event in its `on_completion` state change hook hook.
 
-Payload from the upstream emitted event is passed to the downstream deployment as parameters.
+That event serves as the trigger for a downstream deployment.
+
+The payload from the upstream emitted event is passed to the downstream deployment as parameters.
 
 1. Add a state change hook to a flow:
     ```python
@@ -133,6 +134,10 @@ Payload from the upstream emitted event is passed to the downstream deployment a
         },
     )
     ```
+    
+    It can be tricky defining custom triggers. Reviewing the raw JSON of the event you are trying to match should help you decide what you want to specify in the trigger:
+    ![Alt text](images/event_raw_json.png)
+
 
 4. Build a deployment for the downstream flow to apply the trigger:
 
