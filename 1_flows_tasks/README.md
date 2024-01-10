@@ -11,7 +11,12 @@
 ## Module 1 Lab
 
 1. Create your first flows and task modeled off the [basic-syntax](basic_syntax.py) script.
+    - Run your flow locally and verify that the flow run shows up in the UI.
 2. Try adding [caching](caching_tasks.py) and [retries](retries.py) to your tasks and flows.
+    - Verify that the tasks show up in a cached state.
 3. Add a [custom log](custom_logs.py).
+    - Verify that this log shows up in the UI.
 4. Optional: Submit your tasks to the concurrent task runner for [concurrent execution](concurrent_tasks.py).
+    - Verify if the flow run diagram that the tasks start at around the same time.
 5. Optional: Generate an [artifact](prefect_artifact.py) from one of your tasks or flows.
+    - Verify that the artifact shows up in the artifacts tab.
