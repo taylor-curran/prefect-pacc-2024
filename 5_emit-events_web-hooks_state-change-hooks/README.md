@@ -60,7 +60,7 @@ my_flow()
 
 ## Tie it all together with an end to end example.
 
-1. We start with an upstream flow that emits an event in its `on_completion` state change hook hook.
+1. We start with an upstream flow that emits an event from its `on_completion` state change hook hook.
 2. That event then serves as the trigger for a downstream deployment.
 3. The payload from the triggering event is passed to the downstream deployment as parameters.
 

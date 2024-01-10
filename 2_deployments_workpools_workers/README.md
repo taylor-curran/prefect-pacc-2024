@@ -91,4 +91,4 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
 ### 5. Advanced
 1. Add an infra-level override by specifying a `job_variable` on your deployment.
 2. Go to the Advanced tab of your work pool's setting to customize your work pool's job configuration.
-3. Pause, cancel, and/or retry your flow run.
+3. Pause, cancel, and/or retry your flow run. TODO - make this non advanced
