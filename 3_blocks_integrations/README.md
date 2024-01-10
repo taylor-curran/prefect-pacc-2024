@@ -11,9 +11,9 @@ For example, they can be used to:
 - and much more
 
 Block types can originate from:
-1. Prefect provides a broad range of commonly used, [built-in block types](https://docs.prefect.io/latest/concepts/blocks/#prefect-built-in-blocks).
-2. [Prefect Integrations](https://docs.prefect.io/latest/integrations/): You'll find [block types that have been shared with the community](https://docs.prefect.io/latest/concepts/blocks/#blocks-in-prefect-integrations).
-3.  [Custom Block Types](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types): To create a custom block type, simply define a python class that subclasses [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block).
+1. Prefect provides a broad range of popular [built-in block types](https://docs.prefect.io/latest/concepts/blocks/#prefect-built-in-blocks).
+2. [Prefect Integrations](https://docs.prefect.io/latest/integrations/) are libraries that often contain additional [block types](https://docs.prefect.io/latest/concepts/blocks/#blocks-in-prefect-integrations).
+3. Create a [custom block type](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types). Simply define a python class that subclasses [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block).
 
 ![Alt text](images/slide_block_types.png)
 
@@ -22,7 +22,7 @@ Block types can originate from:
 ### 0. Check out [Prefect's Integration Libraries](https://docs.prefect.io/latest/integrations/).
 Prefect integrations are organized into collections of pre-built tasks, flows, block types and more that are installable as PyPI packages.
 
-#### Interested in Contributing?
+#### Interested in contributing an integration?
 - [Contribution Guide](https://docs.prefect.io/latest/integrations/contribute/)
 - [PrefectHQ/prefect-collection-template](https://github.com/PrefectHQ/prefect-collection-template)
 - [Developing a New Worker Type](https://docs.prefect.io/latest/guides/deployment/developing-a-new-worker-type/)
@@ -32,7 +32,8 @@ Prefect integrations are organized into collections of pre-built tasks, flows, b
 ![Alt text](images/create_email_block.png)
 You'll use this block during the automation module's lab.
 
-### 2. [Create and save another block, but this time using Prefect's python sdk.](https://docs.prefect.io/latest/concepts/blocks/#instantiating-blocks)
+### 2. [Create and save another block with Prefect's Python SDK.](https://docs.prefect.io/latest/concepts/blocks/#instantiating-blocks)
+
 Create a JSON block:
 
 `create_block.py`
@@ -71,12 +72,12 @@ if __name__ == "__main__":
     load_block_flow()
 ```
 
-Go check out the flow run in the UI. You can see that _Prefect is tracking when a block's method is called_. We will learn more about Prefect Events in an upcoming module.
+Check out the flow run in the UI. You can see that _Prefect is tracking when a block's method is called_. We will learn more about Prefect events in an upcoming module.
 ![Alt text](images/flow_run_with_block_usage.png)
 
 ### 5. Optional: [Create a custom block type.](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types)
 
-To create a custom block type, define a class that subclasses [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block). The Block base class builds off of Pydantic's BaseModel, so custom blocks can be [declared in same manner as a Pydantic model](https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage).
+To create a custom block type, define a class that subclasses [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block). The Block base class builds off of Pydantic's BaseModel, so custom blocks can be [declared in the same manner as a Pydantic model](https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage).
 
 1. Inherit from [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block) class and add attributes
 2. Add methods (aka: capabilities)
@@ -88,8 +89,8 @@ To create a custom block type, define a class that subclasses [`Block`](https://
     ```bash
     prefect block register --file custom_block.py
     ```
-5. Consider open sourcing your custom block type (see step 0 above)
-6. Find examples of production-grade block types in Prefect's source code and integration libraries, like the [SlackWebhook](https://github.com/PrefectHQ/prefect/blob/d3eea3f02ffcb74f0877b7f96f674bdce97fa95d/src/prefect/blocks/notifications.py#L86C46-L86C46) type and the the [S3Bucket](https://github.com/PrefectHQ/prefect-aws/blob/main/prefect_aws/s3.py#L395C11-L395C11) type.
+5. Consider open sourcing your custom block type.
+6. Find examples of production-grade block types in Prefect's source code and integration libraries, including the [SlackWebhook](https://github.com/PrefectHQ/prefect/blob/d3eea3f02ffcb74f0877b7f96f674bdce97fa95d/src/prefect/blocks/notifications.py#L86C46-L86C46) type and the the [S3Bucket](https://github.com/PrefectHQ/prefect-aws/blob/main/prefect_aws/s3.py#L395C11-L395C11) type.
 
 ### Here is a simple example of a custom block type:
 
