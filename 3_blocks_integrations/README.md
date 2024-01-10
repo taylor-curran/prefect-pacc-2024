@@ -15,7 +15,7 @@ Block types can originate from:
 2. [Prefect Integrations](https://docs.prefect.io/latest/integrations/): You'll find [block types that have been shared with the community](https://docs.prefect.io/latest/concepts/blocks/#blocks-in-prefect-integrations).
 3.  [Custom Block Types](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types): To create a custom block type, simply define a python class that subclasses [`Block`](https://docs.prefect.io/latest/api-ref/prefect/blocks/core/#prefect.blocks.core.Block).
 
-![Alt text](slide_block_types.png)
+![Alt text](images/slide_block_types.png)
 
 ---
 
@@ -29,7 +29,7 @@ Prefect integrations are organized into collections of pre-built tasks, flows, b
 
 
 ### 1. Find the blocks page in the UI and click the `+` button create an `Email` block.
-![Alt text](create_email_block.png)
+![Alt text](images/create_email_block.png)
 You'll use this block during the automation module's lab.
 
 ### 2. [Create and save another block, but this time using Prefect's python sdk.](https://docs.prefect.io/latest/concepts/blocks/#instantiating-blocks)
@@ -49,7 +49,7 @@ python create_block.py
 ```
 
 You should now have two blocks like these in your workspace, one of type `Email` the other of type `JSON`:
-![Alt text](saved_blocks_screenshot.png)
+![Alt text](images/saved_blocks_screenshot.png)
 
 ### 3. [Load the block in your flow code.](https://docs.prefect.io/latest/concepts/blocks/#loading-blocks)
 ```python
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 ```
 
 Go check out the flow run in the UI. You can see that _Prefect is tracking when a block's method is called_. We will learn more about Prefect Events in an upcoming module.
-![Alt text](flow_run_with_block_usage.png)
+![Alt text](images/flow_run_with_block_usage.png)
 
 ### 5. Optional: [Create a custom block type.](https://docs.prefect.io/latest/concepts/blocks/#creating-new-block-types)
 
@@ -140,12 +140,12 @@ Register Your Block
 ```bash
 prefect block register --file my_custom_block_type.py
 ```
-![Alt text](register_screenshot.png)
+![Alt text](images/register_screenshot.png)
 
 The Result:
-![Alt text](custom_type_listed.png)
-![Alt text](custom_example.png)
-![Alt text](custom_type_form.png)
+![Alt text](images/custom_type_listed.png)
+![Alt text](images/custom_example.png)
+![Alt text](images/custom_type_form.png)
 
 #### [Design Philosophy Behind Blocks](https://medium.com/the-prefect-blog/supercharge-your-python-code-with-blocks-ca8a58128c55)
 Today there are many low-code data integration tools - “connectors” to popular applications. These tools are great for setting up connections to common systems, but they’re not code-first, or even code-second. It can be complex to do anything custom with these tools.
