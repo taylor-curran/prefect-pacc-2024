@@ -1,4 +1,4 @@
-## [Login to Cloud](https://docs.prefect.io/latest/cloud/connecting/#log-into-prefect-cloud-from-a-terminal)
+## [Log in to Cloud](https://docs.prefect.io/latest/cloud/connecting/#log-into-prefect-cloud-from-a-terminal)
 
 ```bash
 prefect cloud login
