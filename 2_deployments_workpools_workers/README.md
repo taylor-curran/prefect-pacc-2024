@@ -9,7 +9,7 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
 Call your work pool something like `name-pacc-work-pool`.
 
 Click the `+` button:
-![Alt text](images/create_work_pool_button.png)
+![Alt text](images/create_pool_plus_button.png)
 
 To see any existing work pools:
 ```bash
