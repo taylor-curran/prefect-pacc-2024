@@ -98,7 +98,9 @@ my_flow()
         event="prefect.result.produced",  # this is an arbitrary event name
         resource={"prefect.resource.id": f"prefect.result.{flow.name}.{flow_run.id}"},
         related=[
-            {   # This will link the event to the flow that emitted it
+            {   # This will link the event to the flow that triggered the state change hook
+                # Events emitted from a flow run automatically contain this relationship,
+                # But since this is a state change hook, we want to manually supply it.
                 "prefect.resource.id": f"prefect.flow.{flow_run.flow_id}",
                 "prefect.resource.role": "flow",
                 "prefect.resource.name": f"{flow.name}",
