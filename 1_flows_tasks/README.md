@@ -1,5 +1,7 @@
 # Basic Syntax Quickstart
 
+![Alt text](images/flow_task_diagrams.png)
+
 ### Rules of Thumb
 - At a minimum, you need to define at least one flow function.
 - Your flows can be segmented by introducing task (`@task`) functions, which can be invoked from within these flows.
