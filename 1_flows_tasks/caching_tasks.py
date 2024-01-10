@@ -20,6 +20,8 @@ def hello_flow(name_input):
 
 # Remote persistence of task results is recommended though optional
 # Use a prefect block to specify a GCS bucket to store results
+# ☝️ We will cover blocks as a general concept in module 3!
+# For now, just know you can set up remote persistence of results.
 # Docs: https://docs.prefect.io/latest/concepts/results/#result-storage-location
 # Docs: https://prefecthq.github.io/prefect-gcp/blocks_catalog/#cloud-storage-module
 
