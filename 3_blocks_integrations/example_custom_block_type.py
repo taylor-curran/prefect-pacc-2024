@@ -45,4 +45,3 @@ class GitHubIssues(Block):
             key=lambda issue: datetime.fromisoformat(issue["updated_at"].rstrip("Z")),
         )
         return most_recent_issue
-

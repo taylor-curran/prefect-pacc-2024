@@ -11,6 +11,7 @@ from prefect.filesystems import GitHub
 
 # TODO: Add scheduling
 
+
 @flow(log_prints=True)
 def my_flow(name: str = "World"):
     print(f"Hello {name}!")
