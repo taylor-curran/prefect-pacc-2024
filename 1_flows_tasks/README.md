@@ -12,10 +12,12 @@
 
 1. Create your first flows and task modeled off the [basic-syntax](basic_syntax.py) script.
     - Run your flow locally and verify that the flow run shows up in the UI. 
-    - Head to the `Flow Runs` page and click on the animal-adjective flow run name to see your flow run page..
+    - Head to the `Flow Runs` page and click on the animal-adjective flow run name to see your flow run page.
+    ![Alt text](images/animal_adj.png)
 2. Try adding [caching](caching_tasks.py) and [retries](retries.py) to your tasks and flows.
     - Verify that the tasks show up in a cached state.
     - Head to the `Task Runs` tab of the flow run page.
+    ![Alt text](images/flow_run_tabs.png)
 3. Add a [custom log](custom_logs.py).
     - Verify that this log shows up in the UI.
     - Check out the logs in the `Logs` tab of the flow run page.
