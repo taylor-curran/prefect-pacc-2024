@@ -8,7 +8,7 @@
 - Think of a deployment like your flow’s passport to orchestration land. 🌐 
 
 ### Basic Architecture
-![Alt text](basic_diagram.png)
+![Alt text](images/basic_diagram.png)
 Flows are **deployed to a work pool** for remote execution facilitated by a [worker process](https://docs.prefect.io/latest/concepts/work-pools/#worker-overview) *started in your desired execution environment*.
 
 #### [Why Workers?](https://docs.prefect.io/latest/tutorial/workers/#why-workers)
@@ -19,17 +19,17 @@ Flows are **deployed to a work pool** for remote execution facilitated by a [wor
 
 
 Multiple work pools often represent **different execution environments**.
-![Alt text](workpool_a_b.png)
+![Alt text](images/workpool_a_b.png)
 
 Workers are designed to dynamically provision infrastructure for each flow run ensuring fine-tuned control of infrastructure utilization.
 _Example: A developer might choose between deploying a flow to a Kubernetes work pool or an ECS work pool._
-![Alt text](k8s_ecs_example.png)
+![Alt text](images/k8s_ecs_example.png)
 
 In the work pool, you can establish default infrastructure configurations. These settings will be used to tailor job specifications for each flow run deployed to that specific work pool.
-![Alt text](work_pools_with_infra_config.png)
+![Alt text](images/work_pools_with_infra_config.png)
 
 Zooming in on one Work Pool: Work pools can be used to prioritize and/or limit flow runs through the use of (optional) work queues.
-![Alt text](work_queues.png)
+![Alt text](images/work_queues.png)
 
 ### Deployments
 - Deployments tie all prefect components together.
@@ -46,7 +46,7 @@ Attributes of a deployment can include (but are not limited to):
 Default infrastructure settings in the work pool can be overridden at the deployment level, allowing for highly granular provisioning of different infrastructure for each flow run. 
 
 —Therefore, you can think of the work pool as just the default template.
-![Alt text](deployment_with_job_variables.png)
+![Alt text](images/deployment_with_job_variables.png)
 
 ## Summary Diagram
-![Alt text](main_diagram.png)
+![Alt text](images/main_diagram.png)

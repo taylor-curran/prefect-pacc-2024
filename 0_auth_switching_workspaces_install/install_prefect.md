@@ -9,4 +9,4 @@ pip install -U prefect
 prefect version
 ```
 
-![Alt text](output_prefect_version.png)
+![Alt text](images/output_prefect_version.png)

@@ -4,11 +4,11 @@
 prefect cloud login
 ```
 Select **Log in with a web browser**
-![Alt text](login_with_wbrowser.png)
+![Alt text](images/login_with_wbrowser.png)
 
 #### Or manually login with API key
 
-![Alt text](get_api_key.png)
+![Alt text](images/get_api_key.png)
 
 Find trouble shooting tips for login errors [here](https://docs.prefect.io/latest/cloud/connecting/#prefect-cloud-login-errors)!
 

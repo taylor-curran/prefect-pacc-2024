@@ -1,6 +1,6 @@
 # Deployment Quickstart
 
-![Alt text](main_diagram.png)
+![Alt text](images/main_diagram.png)
 For conceptual breakdown of the diagram, go to [Architecture Diagrams Walkthrough](archetecture_diagrams_walkthrough.md).
 
 ### 1. [Create a work pool](https://docs.prefect.io/latest/tutorial/workers/#create-a-work-pool) or choose one that already exists in your workspace.
@@ -9,7 +9,7 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
 Call your work pool something like `name-pacc-work-pool`.
 
 Click the `+` button:
-![Alt text](create_work_pool_button.png)
+![Alt text](images/create_work_pool_button.png)
 
 To see any existing work pools:
 ```bash
@@ -69,7 +69,7 @@ prefect worker start --pool my-pacc-work-pool
     ```
 
 ### 4. Find your deployment in the UI and run it using the quick run button at the top right.
-![Alt text](quick_run_button.png)
+![Alt text](images/quick_run_button.png)
 
 Alternatively, you can run the deployment from the CLI
 ```bash
