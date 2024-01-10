@@ -6,40 +6,46 @@ For conceptual breakdown of the diagram, go to [Architecture Diagrams Walkthroug
 ### 1. [Create a work pool](https://docs.prefect.io/latest/tutorial/workers/#create-a-work-pool) or choose one that already exists in your workspace.
 _Creating a work pool in the UI_ is recommended for your first go of it so you that get a sense of all the options.
 
-Call your work pool something like `name-pacc-work-pool`.
+1. Navigate to the Work Pools page.
+    Click the `+` button:
+    ![Alt text](images/create_pool_plus_button.png)
+2. Select `Docker` for the work pool type.
+3. Call your work pool something like `name-pacc-work-pool`.
+4. Check out the infrastructure configuration options, but feel free to leave them empty (default) for now.
+5. Verify this worked by running the following in your terminal:
 
-Click the `+` button:
-![Alt text](images/create_pool_plus_button.png)
+    To see any existing work pools:
+    ```bash
+    prefect work-pool ls
+    ``` 
+6. Alternatively, you can create a work pool with the following command:
 
-To see any existing work pools:
-```bash
-prefect work-pool ls
-``` 
-
-Alternatively, you can create a work pool with the following command:
-```bash
-prefect work-pool create "my-pacc-work-pool" --type docker
-```
+    ```bash
+    prefect work-pool create "my-pacc-work-pool" --type docker
+    ```
 
 ### 2. [Start a worker](https://docs.prefect.io/latest/tutorial/workers/#start-a-worker) to poll this work pool.
 
-Ensure your docker daemon is running.
+1. Ensure your docker daemon is running on your laptop.
 
-Install the required library:
-```python
-pip install prefect-docker
-```
+2. Install the required library:
 
-On your laptop, open up a new terminal, activate your python environment, and type:
-```bash
-prefect worker start --pool my-pacc-work-pool
-```
-^Keep this guy running for as long as you want to run deployments on your laptop. Go to our [guides]() when you are ready to start a worker in a production environment (aka not on your laptop)
+    ```bash
+    pip install prefect-docker
+    ```
+
+3. On your laptop, open up a new terminal, activate your python environment, and type:
+
+    ```bash
+    prefect worker start --pool my-pacc-work-pool
+    ```
+
+4. Keep this guy running for as long as you want to run deployments on your laptop. Go to our [guides]() when you are ready to start a worker in a production environment (aka not on your laptop)
 
 ### 3. Now you're all set [create a deployment](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment) to send your flow to your work pool.
 
 
-1. Ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
+1. Again, ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
 
 2. Use the [`flow.deploy()`](https://docs.prefect.io/latest/api-ref/prefect/flows/#prefect.flows.Flow.deploy) method to define a deployment:
 
@@ -58,28 +64,31 @@ prefect worker start --pool my-pacc-work-pool
     if __name__ == "__main__":
         my_flow.deploy(
             name="taylor-pacc-deployment", # add your name and 'pacc'
-            work_pool_name="my-pacc-work-pool", 
-            image="my-first-deployment-image:pacc",
+            work_pool_name="my-pacc-work-pool", # work pool you created earlier
+            image="my-first-deployment-image:pacc", # name this whatever you like
             push=False,
             tags=["pacc", "taylor"] # add tags
-            interval=3000
+            interval=3000 # schedule
         )
     ```
 
 3. Run your python script:
+
     ```bash
     python my_flow.py
     ```
 
 ### 4. Find your deployment in the UI and run it using the quick run button at the top right.
-Go to the deployments page.
-![Alt text](images/quick_run_button.png)
+1. Go to the deployments page and click on `Quick Run`.
+    ![Alt text](images/quick_run_button.png)
 
-Alternatively, you can run the deployment from the CLI
-```bash
-prefect deployment run 'my_flow/my-deployment'
-```
+2. Alternatively, you can run the deployment from the CLI
+
+    ```bash
+    prefect deployment run 'my_flow/my-deployment'
+    ```
 
 ### 5. Advanced
 1. Add an infra-level override by specifying a `job_variable` on your deployment.
 2. Go to the Advanced tab of your work pool's setting to customize your work pool's job configuration.
+3. Pause, cancel, and/or retry your flow run.
