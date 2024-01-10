@@ -60,11 +60,11 @@ my_flow()
 
 ## Tie it all together with an end to end example.
 
-Here is an example of an upstream flow that emits an event in its `on_completion` state change hook hook.
+1. We start with an upstream flow that emits an event in its `on_completion` state change hook hook.
+2. That event then serves as the trigger for a downstream deployment.
+3. The payload from the triggering event is passed to the downstream deployment as parameters.
 
-That event serves as the trigger for a downstream deployment.
-
-The payload from the upstream emitted event is passed to the downstream deployment as parameters.
+--- 
 
 1. Add a state change hook to a flow:
     ```python
@@ -160,3 +160,4 @@ The payload from the upstream emitted event is passed to the downstream deployme
     You should see events associated with your automation
     ![Alt text](images/automation_triggered_event_feed.png)
 
+    Check out [upstream_event_emitter.py](upstream_event_emitter.py) and [downstream_event_triggered_deployment.py](downstream_event_triggered_deployment.py) for the full example code.
