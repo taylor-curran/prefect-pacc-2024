@@ -36,9 +36,9 @@ def my_subflow():
 @flow
 def pipeline(lat: float = 38.9, lon: float = -77.0):
     temp = fetch_weather(lat, lon)
-    result = save_weather(temp)
+    weather = save_weather(temp)
     subflow_result = my_subflow()
-    return {"weather": result, "subflow": subflow_result}
+    return {"weather": weather, "subflow": subflow_result}
 
 
 if __name__ == "__main__":
