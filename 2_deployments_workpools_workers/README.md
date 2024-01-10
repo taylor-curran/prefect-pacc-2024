@@ -72,6 +72,7 @@ prefect worker start --pool my-pacc-work-pool
     ```
 
 ### 4. Find your deployment in the UI and run it using the quick run button at the top right.
+Go to the deployments page.
 ![Alt text](images/quick_run_button.png)
 
 Alternatively, you can run the deployment from the CLI
