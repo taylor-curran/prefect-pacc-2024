@@ -41,7 +41,9 @@ prefect worker start --pool my-pacc-work-pool
 
 1. Ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
 
-2. Use the `flow.deploy()` method to define a deployment:
+2. Use the [`flow.deploy()`](https://docs.prefect.io/latest/api-ref/prefect/flows/#prefect.flows.Flow.deploy) method to define a deployment:
+
+    Check out our [schedule](https://docs.prefect.io/latest/concepts/schedules/) options [here](https://docs.prefect.io/latest/api-ref/prefect/flows/#prefect.flows.Flow.deploy). Choose between `cron`, `interval`, or `rrule`. In the example below we set an interval schedule for every 50 minutes.
 
     `my_flow.py`
 
@@ -55,11 +57,12 @@ prefect worker start --pool my-pacc-work-pool
 
     if __name__ == "__main__":
         my_flow.deploy(
-            name="taylor-pacc-deployment", # add your name and 'pacc' so its easy to find
+            name="taylor-pacc-deployment", # add your name and 'pacc'
             work_pool_name="my-pacc-work-pool", 
             image="my-first-deployment-image:pacc",
             push=False,
             tags=["pacc", "taylor"] # add tags
+            interval=3000
         )
     ```
 
