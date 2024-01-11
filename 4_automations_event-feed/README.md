@@ -75,7 +75,6 @@ In this example, you'll create a custom trigger that results in an action of a [
         load_block_flow()
     ```
 7. Verify that you got a notification email and verify that the webhook was called.
-TODO: Why multiple webhook calls?
 
 ## 4. Declare and resolve a [Prefect Incident](https://docs.prefect.io/latest/cloud/incidents/)
 
