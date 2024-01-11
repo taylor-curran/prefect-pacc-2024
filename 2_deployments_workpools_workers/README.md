@@ -26,7 +26,7 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
 
 ### 2. [Start a worker](https://docs.prefect.io/latest/tutorial/workers/#start-a-worker) to poll this work pool.
 
-1. Ensure your docker daemon is running on your laptop.
+1. Ensure the Docker daemon is running on your laptop.
 
 2. Install the required library:
 
@@ -34,22 +34,22 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
     pip install prefect-docker
     ```
 
-3. On your laptop, open up a new terminal, activate your python environment, and type:
+3. On your laptop, open up a new terminal, activate your Python environment, and type:
 
     ```bash
     prefect worker start --pool my-pacc-work-pool
     ```
 
-4. Keep this guy running for as long as you want to run deployments on your laptop. Go to our [guides]() when you are ready to start a worker in a production environment (aka not on your laptop)
+4. Keep this terminal process running for as long as you want to run deployments on your laptop. 
 
-### 3. Now you're all set [create a deployment](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment) to send your flow to your work pool.
+### 3. [Create a deployment](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment) to send your flow to your work pool.
 
 
-1. Again, ensure your docker daemon is running because when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
+1. Again, ensure the Docker daemon is running because, when you run `flow.deploy()`, [Prefect will build a custom Docker image](https://docs.prefect.io/latest/tutorial/workers/#create-the-deployment:~:text=Prefect%20will%20build%20a%20custom%20Docker%20image%20containing%20your%20workflow%20code%20that%20the%20worker%20can%20use%20to%20dynamically%20spawn%20Docker%20containers%20whenever%20this%20workflow%20needs%20to%20run.) containing your workflow code that the worker can use to dynamically spawn Docker containers whenever this workflow needs to run.
 
 2. Use the [`flow.deploy()`](https://docs.prefect.io/latest/api-ref/prefect/flows/#prefect.flows.Flow.deploy) method to define a deployment:
 
-    Check out our [schedule](https://docs.prefect.io/latest/concepts/schedules/) options [here](https://docs.prefect.io/latest/api-ref/prefect/flows/#prefect.flows.Flow.deploy). Choose between `cron`, `interval`, or `rrule`. In the example below we set an interval schedule for every 50 minutes.
+    Check out the [schedule](https://docs.prefect.io/latest/concepts/schedules/) options [here](https://docs.prefect.io/latest/api-ref/prefect/flows/#prefect.flows.Flow.deploy). Choose between `cron`, `interval`, or `rrule`. In the example below we set an interval schedule for every 50 minutes.
 
     `my_flow.py`
 
@@ -89,6 +89,6 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
     ```
 
 ### 5. Advanced
-1. Add an infra-level override by specifying a `job_variable` on your deployment.
+1. Add an infrastructure-level override such as an environment variable by specifying a `job_variable` on your deployment.
 2. Go to the Advanced tab of your work pool's setting to customize your work pool's job configuration.
-3. Pause, cancel, and/or retry your flow run. TODO - make this non advanced
+3. Pause, cancel, and/or retry your flow run.
