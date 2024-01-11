@@ -26,7 +26,7 @@ def hello_flow(name_input):
 # Docs: https://prefecthq.github.io/prefect-gcp/blocks_catalog/#cloud-storage-module
 
 
-@flow(result_storage=GcsBucket(bucket="my-block-name"))
+@flow(result_storage=GcsBucket.load("my-block-name"))
 def flow_with_remotely_persisted_results(name_input):
     hello_task(name_input)
 
