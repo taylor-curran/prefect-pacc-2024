@@ -7,7 +7,7 @@ from datetime import timedelta
 # Docs: https://docs.prefect.io/latest/concepts/tasks/#caching
 
 
-@task(cache_key_fn=task_input_hash, cache_expiration=timedelta(minutes=1))
+@task(cache_key_fn=task_input_hash, cache_expiration=timedelta(minutes=30))
 def hello_task(name_input):
     print(f"Hello {name_input}!")
 
