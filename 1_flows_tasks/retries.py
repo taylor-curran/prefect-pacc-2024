@@ -6,6 +6,9 @@ from prefect import flow, task
 # Docs: https://docs.prefect.io/latest/concepts/tasks/#retries
 # Docs: https://docs.prefect.io/latest/concepts/flows/#flow-settings
 
+# Optionally set Exponential Backoff
+# Docs: https://docs.prefect.io/latest/api-ref/prefect/tasks/#prefect.tasks.exponential_backoff
+
 
 @task(retries=4, retry_delay_seconds=0.1)
 def fetch_cat_fact():
