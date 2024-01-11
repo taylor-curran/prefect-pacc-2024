@@ -26,6 +26,7 @@ def hello_flow(name_input):
 
 from prefect_gcp.cloud_storage import GcsBucket
 
+# This is an example function, it will not run until you create a block in the next module
 @flow(result_storage=GcsBucket.load("my-block-name"))
 def flow_with_remotely_persisted_results(name_input):
     hello_task(name_input)
