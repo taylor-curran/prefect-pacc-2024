@@ -67,7 +67,7 @@ _Creating a work pool in the UI_ is recommended for your first go of it so you t
             work_pool_name="my-pacc-work-pool", # work pool you created earlier
             image="my-first-deployment-image:pacc", # name this whatever you like
             push=False,
-            tags=["pacc", "taylor"] # add tags
+            tags=["pacc", "taylor"], # add tags
             interval=3000 # schedule
         )
     ```
