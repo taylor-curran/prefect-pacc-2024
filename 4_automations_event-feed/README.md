@@ -12,7 +12,7 @@
     ![Alt text](images/action_ui.png)
 4. Name your automation:
     ![Alt text](images/automation_name.png)
-5. Run a deployment (ensure that it meets the criteria set in your automation's trigger, eg. the tags `pacc` and `taylor`)
+5. Run a deployment (ensure that it meets the criteria set in your automation's trigger, e.g. the tags `pacc` and `taylor`)
 
 ## 2. Browse the [events](https://docs.prefect.io/latest/concepts/events/) dashboard.
 
@@ -32,7 +32,7 @@
 
 In this example, you'll create a custom trigger that results in an action of a [toy webhook](https://webhook.site/) being called.
 
-1. Find an block based event in the event feed and click into the event details.
+1. Find an block-based event in the event feed and click into the event details.
 
     Filter by Resource:
     ![Alt text](images/block_filter.png)
@@ -112,8 +112,5 @@ TODO: Why multiple webhook calls?
     "within": 0
     }
     ```
-
-
-TODO: Add pausing?
 
     
