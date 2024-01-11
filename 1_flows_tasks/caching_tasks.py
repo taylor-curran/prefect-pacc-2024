@@ -16,6 +16,10 @@ def hello_task(name_input):
 def hello_flow(name_input):
     hello_task(name_input)
 
+if __name__ == "__main__":
+    hello_flow("Marvin")
+
+# -- Primer for a future module --
 
 # Remote persistence of task results is recommended though optional
 # Use a prefect block to specify a GCS bucket to store results
@@ -30,7 +34,3 @@ from prefect_gcp.cloud_storage import GcsBucket
 @flow(result_storage=GcsBucket.load("my-block-name"))
 def flow_with_remotely_persisted_results(name_input):
     hello_task(name_input)
-
-
-if __name__ == "__main__":
-    hello_flow("Marvin")
