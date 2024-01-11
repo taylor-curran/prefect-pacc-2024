@@ -1,7 +1,6 @@
 from prefect import flow, task
 from prefect.tasks import task_input_hash
 from datetime import timedelta
-from prefect_gcp.cloud_storage import GcsBucket
 
 # Task results can be cached
 # Provide a cache_key_fn AND/OR a cached_expiration timedelta to the task decorator
@@ -25,6 +24,7 @@ def hello_flow(name_input):
 # Docs: https://docs.prefect.io/latest/concepts/results/#result-storage-location
 # Docs: https://prefecthq.github.io/prefect-gcp/blocks_catalog/#cloud-storage-module
 
+from prefect_gcp.cloud_storage import GcsBucket
 
 @flow(result_storage=GcsBucket.load("my-block-name"))
 def flow_with_remotely_persisted_results(name_input):
