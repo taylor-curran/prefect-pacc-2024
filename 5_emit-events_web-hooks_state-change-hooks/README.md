@@ -110,6 +110,8 @@ my_flow()
     )
     ```
 
+    For a full example of the emission script, see [upstream_event_emitter.py](upstream_event_emitter.py)
+
     You should see something like this in your event feed:
     ![Alt text](images/result_produced_event_feed.png)
 
@@ -154,6 +156,9 @@ my_flow()
             triggers=[downstream_deployment_trigger],
         )
     ```
+
+    For a full example of the emission script, see [downstream_event_triggered_deployment.py](downstream_event_triggered_deployment.py)
+
     You should see that an automation is created as the result of this 
     ![Alt text](images/automation_created_event_feed.png)
 
