@@ -4,8 +4,8 @@
 1. Find the Automations page in the UI and click the `+` button.
 2. Define your trigger:
 
-    Add your own email.
-    ![Alt text](images/trigger_ui.png)
+    Add a tag that will filter out other people's flow runs, ideally you've tagged you deployment with your name, like in this example, I put `taylor`
+    ![Alt text](images/trigger_ui_with_tag.png)
 3. Define your action:
 
     Use the block you created during the [blocks quickstart](../3_blocks_integrations/README.md).
