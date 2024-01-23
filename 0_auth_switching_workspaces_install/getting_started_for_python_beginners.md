@@ -64,10 +64,6 @@ pip install prefect prefect-docker
 prefect cloud login
 ``` 
 
-
-
-
-
 *.*<img src="images/get_api_key.png" width="300"/>
 ## Step 6: Set Your Workspace
 
