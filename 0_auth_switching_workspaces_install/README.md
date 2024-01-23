@@ -1,4 +1,13 @@
-## [Log in to Cloud](https://docs.prefect.io/latest/cloud/connecting/#log-into-prefect-cloud-from-a-terminal)
+## 1. [Log into Cloud from your browser](https://app.prefect.cloud/)
+Much of Prefect's functionality is backed by an API. Sign up for a forever free Prefect Cloud account or accept your organization's invite to join their Prefect Cloud account. Head to [https://app.prefect.cloud/](https://app.prefect.cloud/) to login to Prefect Cloud's UI from your web browser.
+
+TODO: talk to w about this
+IF your company has already set up SSO, please click `Sign in with SSO` to avoid creating a duplicate account.
+
+<img src="images/sso_login_button.png" width="300"/>
+
+## 2. [Log in to Cloud](https://docs.prefect.io/latest/cloud/connecting/#log-into-prefect-cloud-from-a-terminal) from a terminal
+Log into prefect cloud from your terminal so that you can author flows.
 
 ```bash
 prefect cloud login
@@ -6,19 +15,20 @@ prefect cloud login
 Select **Log in with a web browser**
 ![Alt text](images/login_with_wbrowser.png)
 
-#### Or manually login with API key
+#### Alternatively, manually login with API key
 
-![Alt text](images/get_api_key.png)
+<img src="images/get_api_key.png" width="300"/>
 
 Find trouble shooting tips for login errors [here](https://docs.prefect.io/latest/cloud/connecting/#prefect-cloud-login-errors)!
 
-## [Change Workspaces](https://docs.prefect.io/latest/cloud/connecting/#change-workspaces)
+
+## 3. [Change Workspaces](https://docs.prefect.io/latest/cloud/connecting/#change-workspaces) to your workspace of choice
 ```bash
 prefect cloud workspace set
 ```
 Then select the desired workspace from list.
 
-## [Prefect Profiles](https://docs.prefect.io/latest/guides/settings/#configuration-profiles)
+## (Optional) [Prefect Profiles](https://docs.prefect.io/latest/guides/settings/#configuration-profiles)
 Prefect allows you to persist settings instead of setting an environment variable each time you open a new shell. Settings are persisted to profiles, which allow you to move between groups of settings quickly.
 
 To create a profile:
