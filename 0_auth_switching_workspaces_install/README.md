@@ -10,8 +10,23 @@ IF your company has already set up SSO, please click `Sign in with SSO` to avoid
 
 <img src="images/sso_login_button.png" width="300"/>
 
+## 2. Ensure you have prefect installed
+For more info see our [Install Guide](https://docs.prefect.io/latest/getting-started/installation/)!
+
+```bash
+pip install -U prefect 
+```
+Check that you have a recent version:
+```bash
+prefect version
+```
+
+<img src="images/output_prefect_version.png" width="300"/>
+
 ## 2. [Log in to Cloud](https://docs.prefect.io/latest/cloud/connecting/#log-into-prefect-cloud-from-a-terminal) from a terminal
 Log into prefect cloud from your terminal so that you can author flows.
+
+First, ensure you have [prefect installed](install_prefect.md)
 
 ```bash
 prefect cloud login
@@ -31,6 +46,12 @@ Find trouble shooting tips for login errors [here](https://docs.prefect.io/lates
 prefect cloud workspace set
 ```
 Then select the desired workspace from list.
+
+## 4. Check your [prefect config](https://docs.prefect.io/latest/guides/settings/#viewing-settings-from-the-cli) to ensure 
+```bash
+prefect config view
+```
+The API URL's account ID should match what you see in the URL of your browser.
 
 ## (Optional) [Prefect Profiles](https://docs.prefect.io/latest/guides/settings/#configuration-profiles)
 Prefect allows you to persist settings instead of setting an environment variable each time you open a new shell. Settings are persisted to profiles, which allow you to move between groups of settings quickly.
