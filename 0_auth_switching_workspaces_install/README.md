@@ -47,7 +47,7 @@ prefect cloud workspace set
 ```
 Then select the desired workspace from list.
 
-## 4. Check your [prefect config](https://docs.prefect.io/latest/guides/settings/#viewing-settings-from-the-cli) to ensure 
+## 4. Check your [prefect config](https://docs.prefect.io/latest/guides/settings/#viewing-settings-from-the-cli) to ensure you're hooked up properly
 ```bash
 prefect config view
 ```
