@@ -16,8 +16,8 @@ A virtual environment is a self-contained directory that contains a Python insta
 2. **Create a new directory for your project and navigate into it:** 
 
     ```bash
-    mkdir my_prefect_project
-    cd my_prefect_project
+    mkdir pacc2024
+    cd pacc2024
     ``` 
 3. **Create a virtual environment:**  
     On Windows:
@@ -78,6 +78,38 @@ prefect cloud workspace set
 Choose the desired workspace from the list that appears.
 ## Step 7: Start Coding!
 
-Now that you're all set up, you'll want to start writing Python scripts to define your Prefect flows. If you're new to coding, consider using a code editor like Visual Studio Code or PyCharm. These editors offer helpful features like syntax highlighting and code completion that can make your coding experience much easier.---
+Now that you're all set up, you'll want to start writing Python scripts to define your Prefect flows. If you're new to coding, consider using a code editor like Visual Studio Code or PyCharm.
 
-Remember, learning to code takes time and practice, so don't get discouraged if things seem tricky at first. You're now on your way to becoming a Python and Prefect pro!
+## 8. Run a [hello world flow](hello_world_flow.py) and verify that you can see the flow run in the UI.
+
+Create a new file and call it `hello_world_flow.py`.
+
+`pacc2024/hello_world_flow.py`
+```python
+from prefect import flow
+
+@flow(log_prints=True)
+def hello_world():
+    print("Hello world!")
+
+if __name__ == "__main__":
+    hello_world() # Here we call the flow function so that we get a flow run when we run this file.
+```
+
+Run the file to run the flow.
+```bash
+python pacc2024/hello_world_flow.py
+```
+
+Click on the link listed in the flow run logs:
+```bash
+(venv) ➜  prefect-pacc-2024 git:(main) python hello_world_flow.py 
+09:23:52.648 | INFO    | prefect.engine - Created flow run 'noisy-frog' for flow 'hello-world'
+09:23:52.650 | INFO    | Flow run 'noisy-frog' - View at https://app.prefect.cloud/account/9b649228-0419-40e1-9e0d-44954b5c0ab6/workspace/f7fe0729-5a91-40a4-a800-4bb8c5b6a6f5/flow-runs/flow-run/ea412cbd-9878-41e6-9e36-0be279230875
+09:23:52.867 | INFO    | Flow run 'noisy-frog' - Hello world!
+09:23:53.393 | INFO    | Flow run 'noisy-frog' - Finished in state Completed()
+```
+In the UI, you should see a flow run with a randomly generated adjective-animal name that has no tasks:
+![Alt text](images/hello_flow_run_page.png)
+
+🎉 Congrats! You're all set to start diving in and learning Prefect!
