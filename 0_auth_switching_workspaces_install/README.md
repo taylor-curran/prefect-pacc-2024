@@ -29,6 +29,7 @@ prefect version
 prefect cloud login
 ```
 Select **Log in with a web browser**
+
 ![Alt text](images/login_with_wbrowser.png)
 
 #### Alternatively, manually login with API key
