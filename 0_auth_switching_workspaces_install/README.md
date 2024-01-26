@@ -74,6 +74,8 @@ Click on the link listed in the flow run logs:
 In the UI, you should see a flow run with a randomly generated adjective-animal name that has no tasks:
 ![Alt text](images/hello_flow_run_page.png)
 
+🎉 Congrats! You're all set to start diving in and learning Prefect!
+
 ## (Optional) [Prefect Profiles](https://docs.prefect.io/latest/guides/settings/#configuration-profiles)
 Prefect allows you to persist settings instead of setting an environment variable each time you open a new shell. Settings are persisted to profiles, which allow you to move between groups of settings quickly.
 
