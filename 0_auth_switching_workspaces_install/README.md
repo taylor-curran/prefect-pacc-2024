@@ -4,7 +4,7 @@ If you are a python beginner, please head to our [getting started guide for pyth
 ## 1. [Log into Cloud from your browser](https://app.prefect.cloud/)
 Much of Prefect's functionality is backed by an API. Sign up for a forever free Prefect Cloud account or accept your organization's invite to join their Prefect Cloud account. Head to [https://app.prefect.cloud/](https://app.prefect.cloud/) to login to Prefect Cloud's UI from your web browser.
 
-⚠️ IF your company has already set up SSO, please click `Sign in with SSO` to avoid creating a duplicate account.
+⚠️‼️ IF your company has already set up SSO, please click `Sign in with SSO` to avoid creating a duplicate account.
 
 <img src="images/sso_login_button.png" width="300"/>
 
