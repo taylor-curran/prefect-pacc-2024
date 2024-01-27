@@ -6,10 +6,6 @@ from prefect import flow, task
 # Docs: https://docs.prefect.io/latest/concepts/tasks/#retries
 # Docs: https://docs.prefect.io/latest/concepts/flows/#flow-settings
 
-# Optionally set Exponential Backoff
-# Docs: https://docs.prefect.io/latest/api-ref/prefect/tasks/#prefect.tasks.exponential_backoff
-
-
 @task(retries=4, retry_delay_seconds=0.1)
 def fetch_cat_fact():
     cat_fact = httpx.get("https://httpstat.us/Random/200,500", verify=False)
@@ -25,3 +21,12 @@ def fetch():
 
 if __name__ == "__main__":
     fetch()
+
+
+# Advanced:
+
+# Optionally set Exponential Backoff
+# Docs: https://docs.prefect.io/latest/api-ref/prefect/tasks/#prefect.tasks.exponential_backoff
+
+# Optionally set up Custom Retry Behavior
+# Docs: https://docs.prefect.io/latest/concepts/tasks/#custom-retry-behavior
