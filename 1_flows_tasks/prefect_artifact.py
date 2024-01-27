@@ -11,13 +11,13 @@ from prefect.artifacts import create_markdown_artifact
 def mark_it_down(temp):
     markdown_report = f"""# Weather Report
     
-## Recent weather
+    ## Recent weather
 
-| Time        | Temperature |
-|:--------------|-------:|
-| Now | {temp} |
-| In 1 hour       | {temp + 2} |
-"""
+    | Time        | Temperature |
+    |:--------------|-------:|
+    | Now | {temp} |
+    | In 1 hour       | {temp + 2} |
+    """
     create_markdown_artifact(
         key="weather-report",
         markdown=markdown_report,

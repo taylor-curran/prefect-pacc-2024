@@ -84,8 +84,41 @@
 
     Advanced Docs:
     - [Custom Retry Behavior](https://docs.prefect.io/latest/concepts/tasks/#custom-retry-behavior)
-3. Add a [custom log](custom_logs.py).
+---
+3. Add a [custom log](custom_logs.py):
+    ```python
+    from prefect import flow, get_run_logger
+
+    @flow(name="log-example-flow")
+    def log_it():
+        logger = get_run_logger()
+        logger.info("INFO level log message.")
+        logger.debug("You only see this message if the logging level is set to DEBUG. 🙂")
+
+    ```
     - Verify that this log shows up in the UI.
     - Check out the logs in the `Logs` tab of the flow run page.
+---
 4. Optional: Generate an [artifact](prefect_artifact.py) in one of your tasks or flows.
+    ```python
+    import httpx
+    from prefect import flow, task
+    from prefect.artifacts import create_markdown_artifact
+
+    @task
+    def mark_it_down(temp):
+        markdown_report = f"""# Weather Report        
+        ## Recent weather
+
+        | Time        | Temperature |
+        |:--------------|-------:|
+        | Now | {temp} |
+        | In 1 hour       | {temp + 2} |
+        """
+        create_markdown_artifact(
+            key="weather-report",
+            markdown=markdown_report,
+            description="Very scientific weather report",
+        )
+    ```
     - Verify that the artifact shows up in the Artifacts tab of the flow run page.
