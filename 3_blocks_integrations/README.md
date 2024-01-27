@@ -33,6 +33,7 @@ Prefect integrations are organized into collections of pre-built tasks, flows, b
 You'll use this block during the automation module's lab.
 
 ### 2. [Create and save another block with Prefect's Python SDK.](https://docs.prefect.io/latest/concepts/blocks/#instantiating-blocks)
+This is an alternative to creating a block using a form in the UI as we did in the last step.
 
 Create a JSON block:
 
@@ -53,6 +54,7 @@ You should now have two blocks like these in your workspace, one of type `Email`
 ![Alt text](images/saved_blocks_screenshot.png)
 
 ### 3. [Load the block in your flow code.](https://docs.prefect.io/latest/concepts/blocks/#loading-blocks)
+
 ```python
 from prefect import flow, task
 from prefect.blocks.system import JSON
@@ -145,6 +147,11 @@ prefect block register --file my_custom_block_type.py
 
 The Result:
 ![Alt text](images/custom_example.png)
+
+To delete this block type:
+```bash
+prefect block type delete github-issues
+```
 
 #### [Design Philosophy Behind Blocks](https://medium.com/the-prefect-blog/supercharge-your-python-code-with-blocks-ca8a58128c55)
 Today there are many low-code data integration tools - “connectors” to popular applications. These tools are great for setting up connections to common systems, but they’re not code-first, or even code-second. It can be complex to do anything custom with these tools.
