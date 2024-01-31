@@ -13,9 +13,10 @@ downstream_deployment_trigger = DeploymentTrigger(
     match_related={ # match the flow id of the upstream flow
         "prefect.resource.id": "prefect.flow.00afd929-5829-4e60-934f-e4b51d268fd6"
     },
-    # Expect is the main argument of the trigger object, this matches the event name of our emitted event
+    # Expect is the main argument of the trigger object
+    # The string matches the event name of our emitted event
     expect={"prefect.result.produced"}, 
-    # Here we take from the emitted events payload and apply it to the flows parameter
+    # Here we take from the emitted event's payload and apply it to the flow's parameter
     parameters={
         "prev_result": "{{event.payload.result}}",
     },
