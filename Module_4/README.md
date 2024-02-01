@@ -20,15 +20,58 @@
     ![Alt text](images/event_feed_automations.png)
 1. What about events related to your deployment?
     ![Alt text](images/event_feed_deployments.png)
-1. Checkout infrastructure related events associated with your deployment:
-    ![Alt text](images/event_feed_docker.png)
 1. How about events relating to the blocks you created today?
     ![Alt text](images/event_feed_blocks.png)
 1. Click on the `Flow run` of a Block event to see _when_ the method was called during the flow's execution:
     ![Alt text](images/block_event_flow_run.png)
     ![Alt text](images/flow_run_with_block_event.png)
+1. Now simply click on the ✨ icon at the top right of the events line to return to the event feed. This action filters the feed to show only events related to the flow run from the page you were just viewing.
 
-## 3. Advanced Automations: Create a [custom trigger](https://docs.prefect.io/latest/concepts/automations/#custom-triggers) and compound [actions](https://docs.prefect.io/latest/concepts/automations/#actions)
+## 3. Create a metrics trigger.
+1. Navigate to the automations page and create a new automation.
+    ![Alt text](images/new_automations_metrics.png)
+1. Create a metrics trigger that alerts you after 10 minutes of a sustained success rate below 90% (referencing the average of the past day).
+    ![Alt text](images/average_success_metrics_trigger.png)
+1. Make the action a notification.
+
+
+## 4. Declare and resolve a [Prefect Incident](https://docs.prefect.io/latest/cloud/incidents/)
+
+[Incidents](https://docs.prefect.io/latest/cloud/incidents/) are formal declarations of disruptions to a workspace. With automations, activity in that workspace can be paused when an incident is created and resumed when it is resolved.
+
+1. Find the `Incidents` page and click the `+` button.
+2. Define a test incident, call it something like `your-name-pacc-test` and click `Declare`:
+    ![Alt text](images/declare_incident.png)
+3. Add a test comment.
+4. Navigate to the `Flow Runs` page and find a failed flow run. (Notice the AI Error Summaries)
+    ![Alt text](images/failed_flow_runs.png)
+    
+5. Click into a failed flow run, click on the three dots, and then click `Add to incident` 
+    ![Alt text](images/add_to_incident.png)
+6. Change the severity of the incident.
+7. Mark the incident as resolved. ✅
+    ![Alt text](images/example_incident.png)
+8. Note: [Incidents are a more powerful feature when combined with automations](https://docs.prefect.io/latest/cloud/incidents/#incident-automations):
+    
+    Automations can be used for triggering an incident and for selecting actions to take when an incident is triggered. For example, a work pool status change could trigger the declaration of an incident, or a critical level incident could trigger a notification action.
+
+    To automatically take action when an incident is declared, set up a custom trigger that listens for declaration events.
+
+    ```JSON
+    {
+    "match": {
+        "prefect.resource.id": "prefect-cloud.incident.*"
+    },
+    "expect": [
+        "prefect-cloud.incident.declared"
+    ],
+    "posture": "Reactive",
+    "threshold": 1,
+    "within": 0
+    }
+    ```
+
+## 5. Advanced Automations: Create a [custom trigger](https://docs.prefect.io/latest/concepts/automations/#custom-triggers) and compound [actions](https://docs.prefect.io/latest/concepts/automations/#actions)
 
 In this example, you'll create a custom trigger that results in an action of a [toy webhook](https://webhook.site/) being called.
 
@@ -77,40 +120,6 @@ In this example, you'll create a custom trigger that results in an action of a [
     ```
 7. Verify that you got a notification email and verify that the webhook was called.
 
-## 4. Declare and resolve a [Prefect Incident](https://docs.prefect.io/latest/cloud/incidents/)
 
-[Incidents](https://docs.prefect.io/latest/cloud/incidents/) are formal declarations of disruptions to a workspace. With automations, activity in that workspace can be paused when an incident is created and resumed when it is resolved.
-
-1. Find the `Incidents` page and click the `+` button.
-2. Define a test incident, call it something like `your-name-pacc-test` and click `Declare`:
-    ![Alt text](images/declare_incident.png)
-3. Add a test comment.
-4. Navigate to the `Flow Runs` page and find a failed flow run. (Notice the AI Error Summaries)
-    ![Alt text](images/failed_flow_runs.png)
-    
-5. Click into a failed flow run, click on the three dots, and then click `Add to incident` 
-    ![Alt text](images/add_to_incident.png)
-6. Change the severity of the incident.
-7. Mark the incident as resolved. ✅
-    ![Alt text](images/example_incident.png)
-8. Note: [Incidents are a more powerful feature when combined with automations](https://docs.prefect.io/latest/cloud/incidents/#incident-automations):
-    
-    Automations can be used for triggering an incident and for selecting actions to take when an incident is triggered. For example, a work pool status change could trigger the declaration of an incident, or a critical level incident could trigger a notification action.
-
-    To automatically take action when an incident is declared, set up a custom trigger that listens for declaration events.
-
-    ```JSON
-    {
-    "match": {
-        "prefect.resource.id": "prefect-cloud.incident.*"
-    },
-    "expect": [
-        "prefect-cloud.incident.declared"
-    ],
-    "posture": "Reactive",
-    "threshold": 1,
-    "within": 0
-    }
-    ```
 
     
