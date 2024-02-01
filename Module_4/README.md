@@ -50,6 +50,7 @@ In this example, you'll create a custom trigger that results in an action of a [
     3. Back in Prefect's UI, select the action `Call a webhook`
     4. `Add +` a webhook block, paste in your unique URL from [Webhook.site](https://webhook.site/), and click `Create`.
     ![Alt text](images/create_webhook_block.png)
+    Alternatively, exit the automation screen, go to the Blocks page, and create the Web Hook block from there. Once created go back to the events feed to re-create the custom trigger.
 4. Add another action to notify yourself about this. 
     
     Your `Actions` page should look something like:
