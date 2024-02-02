@@ -20,61 +20,20 @@
     ![Alt text](images/event_feed_automations.png)
 1. What about events related to your deployment?
     ![Alt text](images/event_feed_deployments.png)
-1. Checkout infrastructure related events associated with your deployment:
-    ![Alt text](images/event_feed_docker.png)
 1. How about events relating to the blocks you created today?
     ![Alt text](images/event_feed_blocks.png)
 1. Click on the `Flow run` of a Block event to see _when_ the method was called during the flow's execution:
     ![Alt text](images/block_event_flow_run.png)
     ![Alt text](images/flow_run_with_block_event.png)
+1. Now simply click on the ✨ icon at the top right of the events line to return to the event feed. This action filters the feed to show only events related to the flow run from the page you were just viewing.
 
-## 3. Advanced Automations: Create a [custom trigger](https://docs.prefect.io/latest/concepts/automations/#custom-triggers) and compound [actions](https://docs.prefect.io/latest/concepts/automations/#actions)
+## 3. Create a metrics trigger.
+1. Navigate to the automations page and create a new automation.
+    ![Alt text](images/new_automations_metrics.png)
+1. Create a metrics trigger that alerts you after 10 minutes of a sustained success rate below 90% (referencing the average of the past day).
+    ![Alt text](images/average_success_metrics_trigger.png)
+1. Make the action a notification.
 
-In this example, you'll create a custom trigger that results in an action of a [toy webhook](https://webhook.site/) being called.
-
-1. Find an block-based event in the event feed and click into the event details.
-
-    Filter by Resource:
-    ![Alt text](images/block_filter.png)
-2. Click on the `Raw` tab to review the event's JSON values then click on the three dots at the top right and click `Automate`.
-    ![Alt text](images/event_automate_button.png)
-
-    You'll see we can describe a custom triggering event using JSON:
-    ![Alt text](images/custom_trigger.png)
-
-    **Note:** There are many things we can do to fine tune this custom trigger. For example, we could change the threshold from 1 to 2 if we want this event to occur twice before triggering any action. For more information on trigger grammar, check out [these docs](https://docs.prefect.io/latest/concepts/automations/#custom-triggers).
-
-3. For the action select `Call a webhook` and define a webhook block.
-    1. First get a toy webhook endpoint at [Webhook.site](https://webhook.site/)
-    2. Copy your unique URL
-    3. Back in Prefect's UI, select the action `Call a webhook`
-    4. `Add +` a webhook block, paste in your unique URL from [Webhook.site](https://webhook.site/), and click `Create`.
-    ![Alt text](images/create_webhook_block.png)
-4. Add another action to notify yourself about this. 
-    
-    Your `Actions` page should look something like:
-    ![Alt text](images/compound_actions.png)
-5. Call your Automation something like `taylor-pacc-json-block-automation` and save.
-6.  Run your flow that loads the block, something like:
-    ```python
-    from prefect import flow, task
-    from prefect.blocks.system import JSON
-
-    @task
-    def load_block():
-        jb = JSON.load("taylor-pacc-json-block")
-        my_dict = jb.value
-
-        print(my_dict)
-
-    @flow(log_prints=True)
-    def load_block_flow():
-        load_block()
-
-    if __name__ == "__main__":
-        load_block_flow()
-    ```
-7. Verify that you got a notification email and verify that the webhook was called.
 
 ## 4. Declare and resolve a [Prefect Incident](https://docs.prefect.io/latest/cloud/incidents/)
 
@@ -111,5 +70,56 @@ In this example, you'll create a custom trigger that results in an action of a [
     "within": 0
     }
     ```
+
+## 5. Advanced Automations: Create a [custom trigger](https://docs.prefect.io/latest/concepts/automations/#custom-triggers) and compound [actions](https://docs.prefect.io/latest/concepts/automations/#actions)
+
+In this example, you'll create a custom trigger that results in an action of a [toy webhook](https://webhook.site/) being called.
+
+1. Find an block-based event in the event feed and click into the event details.
+
+    Filter by Resource:
+    ![Alt text](images/block_filter.png)
+2. Click on the `Raw` tab to review the event's JSON values then click on the three dots at the top right and click `Automate`.
+    ![Alt text](images/event_automate_button.png)
+
+    You'll see we can describe a custom triggering event using JSON:
+    ![Alt text](images/custom_trigger.png)
+
+    **Note:** There are many things we can do to fine tune this custom trigger. For example, we could change the threshold from 1 to 2 if we want this event to occur twice before triggering any action. For more information on trigger grammar, check out [these docs](https://docs.prefect.io/latest/concepts/automations/#custom-triggers).
+
+3. For the action select `Call a webhook` and define a webhook block.
+    1. First get a toy webhook endpoint at [Webhook.site](https://webhook.site/)
+    2. Copy your unique URL
+    3. Back in Prefect's UI, select the action `Call a webhook`
+    4. `Add +` a webhook block, paste in your unique URL from [Webhook.site](https://webhook.site/), and click `Create`.
+    ![Alt text](images/create_webhook_block.png)
+    Alternatively, exit the automation screen, go to the Blocks page, and create the Web Hook block from there. Once created go back to the events feed to re-create the custom trigger.
+4. Add another action to notify yourself about this. 
+    
+    Your `Actions` page should look something like:
+    ![Alt text](images/compound_actions.png)
+5. Call your Automation something like `taylor-pacc-json-block-automation` and save.
+6.  Run your flow that loads the block, something like:
+    ```python
+    from prefect import flow, task
+    from prefect.blocks.system import JSON
+
+    @task
+    def load_block():
+        jb = JSON.load("taylor-pacc-json-block")
+        my_dict = jb.value
+
+        print(my_dict)
+
+    @flow(log_prints=True)
+    def load_block_flow():
+        load_block()
+
+    if __name__ == "__main__":
+        load_block_flow()
+    ```
+7. Verify that you got a notification email and verify that the webhook was called.
+
+
 
     
