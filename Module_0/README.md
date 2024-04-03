@@ -2,7 +2,7 @@
 If you are a python beginner, please head to our [getting started guide for python beginners guide](getting_started_for_python_beginners.md) where we walk through creating a python virtual environment before installing prefect.
 
 ## 1. [Log into Cloud from your browser](https://app.prefect.cloud/)
-Much of Prefect's functionality is backed by an API. Sign up for a forever free Prefect Cloud account or accept your organization's invite to join their Prefect Cloud account. Head to [https://app.prefect.cloud/](https://app.prefect.cloud/) to login to Prefect Cloud's UI from your web browser.
+Much of Prefect's functionality is backed by an API. Sign up for a forever free Prefect Cloud account or accept your organization's invite to join their Prefect Cloud account. To access Prefect's UI, head to our [SSO login page](https://app.prefect.cloud/auth/discovery) to sign in to Prefect Cloud.
 
 ⚠️‼️ IF your company has already set up SSO, please click `Sign in with SSO` to avoid creating a duplicate account.
 
