@@ -128,7 +128,7 @@ my_flow()
         name="Wait for Upstream Flow's Result PACC Taylor",
         enabled=True,
         match_related={ # match the flow id of the upstream flow
-            "prefect.resource.id": "prefect.flow.00afd929-5829-4e60-934f-e4b51d268fd6"
+            "prefect.resource.name": "emit_on_complete"
         },
         # Expect is the main argument of the trigger object, this matches the event name of our emitted event
         expect={"prefect.result.produced"}, 
