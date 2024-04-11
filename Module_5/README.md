@@ -127,7 +127,7 @@ my_flow()
     downstream_deployment_trigger = DeploymentTrigger(
         name="Wait for Upstream Flow's Result PACC Taylor",
         enabled=True,
-        match_related={ # match the flow id of the upstream flow
+        match_related={ # match the flow name of the upstream flow
             "prefect.resource.name": "emit_on_complete"
         },
         # Expect is the main argument of the trigger object, this matches the event name of our emitted event
