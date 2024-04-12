@@ -6,6 +6,7 @@ from prefect import flow, task
 # Docs: https://docs.prefect.io/latest/concepts/tasks/#retries
 # Docs: https://docs.prefect.io/latest/concepts/flows/#flow-settings
 
+
 @task(retries=4, retry_delay_seconds=0.1)
 def fetch_cat_fact():
     cat_fact = httpx.get("https://httpstat.us/Random/200,500", verify=False)

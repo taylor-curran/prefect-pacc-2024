@@ -14,8 +14,8 @@ def emit_on_complete(flow: Flow, flow_run: FlowRun, state: State):
         event="prefect.result.produced",  # this is an arbitrary event name
         resource={"prefect.resource.id": f"prefect.result.{flow.name}.{flow_run.id}"},
         related=[
-            {   # This will link the event to the flow that emitted it
-                "prefect.resource.id": f"prefect.flow.{flow_run.flow_id}", 
+            {  # This will link the event to the flow that emitted it
+                "prefect.resource.id": f"prefect.flow.{flow_run.flow_id}",
                 "prefect.resource.role": "flow",
                 "prefect.resource.name": f"{flow.name}",
             }

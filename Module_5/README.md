@@ -127,17 +127,17 @@ my_flow()
     downstream_deployment_trigger = DeploymentTrigger(
         name="Wait for Upstream Flow's Result PACC Taylor",
         enabled=True,
-        match_related={ # match the flow name of the upstream flow
+        match_related={  # match the flow name of the upstream flow
             "prefect.resource.role": "flow",
-            "prefect.resource.name": "emit_on_complete"
+            "prefect.resource.name": "upstream-flow",
         },
         # Expect is the main argument of the trigger object, this matches the event name of our emitted event
-        expect={"prefect.result.produced"}, 
+        expect={"prefect.result.produced"},
         # Here we take from the emitted events payload and apply it to the flows parameter
         parameters={
             "prev_result": "{{event.payload.result}}",
         },
-    )
+        )
     ```
     
     It can be tricky defining custom triggers. Reviewing the raw JSON of the event you are trying to match should help you decide what you want to specify in the trigger:

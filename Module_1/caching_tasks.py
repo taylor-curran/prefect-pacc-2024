@@ -16,6 +16,7 @@ def hello_task(name_input):
 def hello_flow(name_input):
     hello_task(name_input)
 
+
 if __name__ == "__main__":
     hello_flow("Marvin")
 
@@ -29,6 +30,7 @@ if __name__ == "__main__":
 # Docs: https://prefecthq.github.io/prefect-gcp/blocks_catalog/#cloud-storage-module
 
 from prefect_gcp.cloud_storage import GcsBucket
+
 
 # This is an example function, it will not run until you create a block in the next module
 @flow(result_storage=GcsBucket.load("my-block-name"))

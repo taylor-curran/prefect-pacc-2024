@@ -13,5 +13,5 @@ if __name__ == "__main__":
         image="docker.io/taycurran/pacc:quickstart",
         push=False,
         tags=["pacc", "taylor"],
-        interval=3000
+        interval=3000,
     )

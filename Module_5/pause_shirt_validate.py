@@ -34,4 +34,3 @@ def get_shirt_order():
 
 if __name__ == "__main__":
     get_shirt_order()
-
