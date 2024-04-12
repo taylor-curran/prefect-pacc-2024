@@ -17,7 +17,7 @@ downstream_deployment_trigger = DeploymentTrigger(
     },
     # Expect is the main argument of the trigger object, this matches the event name of our emitted event
     expect={"prefect.flow-run.Failed"},
-    # Here we take from the emitted events resource information and apply it to the flows parameter
+    # Here we take from the emitted events resource information and apply it to the flow's parameter
     parameters={
         "my_prev_flow_run_id": "{{event.resource.id}}",
     },
