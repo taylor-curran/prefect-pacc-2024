@@ -162,3 +162,10 @@ cython_debug/
 .vscode/
 
 **.vscode/
+
+# Terraform Stuff
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+*.tfvars
