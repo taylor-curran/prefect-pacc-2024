@@ -1,6 +1,6 @@
 from prefect import flow
 from prefect.events.schemas import DeploymentTrigger
-from prefect.events import DeploymentEventTrigger, DeploymentCompoundTrigger
+# from prefect.events import DeploymentEventTrigger, DeploymentCompoundTrigger
 # TODO Change the script to use DeploymentEventTrigger, DeploymentCompoundTrigger
 
 @flow(log_prints=True)
