@@ -169,3 +169,5 @@ cython_debug/
 *.tfstate.*
 tfplan
 *.tfvars
+
+/Users/taylorcurran/Documents/bs/prefect-pacc-2024/Module_6/watch_lambdas/response.json
