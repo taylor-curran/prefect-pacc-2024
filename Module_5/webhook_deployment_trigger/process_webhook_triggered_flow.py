@@ -1,0 +1,30 @@
+from prefect import flow
+
+
+@flow(log_prints=True)
+def decorated_fn(param_1: str):
+    print(param_1)
+
+
+if __name__ == "__main__":
+    decorated_fn.from_source(
+        source="Module_5/webhook_deployment_trigger/",
+        entrypoint="process_webhook_triggered_flow.py:decorated_fn"
+    ).deploy(
+        name="my-deployment",
+        work_pool_name="on-prem",
+        triggers=[
+            {
+                "type": "event",
+                "match": {"prefect.resource.name": "Updated Regression Model"},
+                "match_related": {},
+                "after": [],
+                "expect": ["model.refreshed"],
+                "for_each": [],
+                "posture": "Reactive",
+                "threshold": 1,
+                "within": 0,
+                "parameters": {"param_1": "{{ event.resource.id }}"}
+            }
+        ],
+    )

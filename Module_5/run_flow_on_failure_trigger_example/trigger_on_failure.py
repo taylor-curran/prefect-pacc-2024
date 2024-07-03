@@ -3,6 +3,7 @@ from prefect.events.schemas import DeploymentTrigger
 # from prefect.events import DeploymentEventTrigger, DeploymentCompoundTrigger
 # TODO Change the script to use DeploymentEventTrigger, DeploymentCompoundTrigger
 
+
 @flow(log_prints=True)
 def downstream_failure_handling_flow(my_prev_flow_run_id):
     print(f"✨ Flow run ID here: {str(my_prev_flow_run_id)}")
