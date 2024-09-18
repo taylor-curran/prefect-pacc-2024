@@ -6,7 +6,7 @@ Origianlly posted in [this gh issue](https://github.com/PrefectHQ/prefect/issues
 
 First Code Block: Avoid Submission of Tasks by Passing `skip_tasks` Around** 
 
-```Copy code
+```python3
 from typing import List
 from prefect import Flow, Task, flow
 from prefect.states import Completed
@@ -67,7 +67,7 @@ my_flow_from_direct(skip_tasks=["foo"])
 
 **Second Code Block: Avoid Submission of Tasks Using a Context Variable** 
 
-```Copy code
+```python3
 from contextvars import ContextVar
 
 _SKIP_TASKS = ContextVar("skip_tasks", default=[])
@@ -133,7 +133,7 @@ my_flow_from_context(skip_tasks=["foo"])
 
 **Third Code Block: Skipping Tasks After Creation Using a Wrapper Function** 
 
-```Copy code
+```python3
 def task(__fn=None, **kwargs):
     if __fn:
         return CustomTask(fn=my_task_wrapper(__fn), **kwargs)
@@ -189,7 +189,7 @@ my_flow_return_skipped(skip_tasks=["foo_wrapped"])
 
 **Fourth Code Block: Skipping Tasks and Propagating to Downstream Tasks** 
 
-```Copy code
+```python3
 class SKIPPED:
     pass
 
