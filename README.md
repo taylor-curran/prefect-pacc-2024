@@ -11,7 +11,7 @@ See the README in each folder for the guided quick starts.
 | 2| [Flows, Tasks](./Module_2)|
 | 3| [Blocks, Integrations](./Module_3)|
 | 4| [Automations, Events, Metrics, Incidents, State change hooks](./Module_4)|
-| 5| [Custom events, Webhooks,](./Module_5)|
+| 5| [Custom events, Webhooks, Deployment Triggers](./Module_5)|
 | 6| [Workflow patterns, Async execution](./Module_6)|
 
 ## Installs
